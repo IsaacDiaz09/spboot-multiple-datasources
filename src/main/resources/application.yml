@@ -1,0 +1,33 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true
+        show_sql: true
+        format_sql: true
+        temp:
+          use_jdbc_metadata_defaults: false
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    first-db:
+      driver-class-name: org.postgresql.Driver
+      jdbc-url: <<DatabaseJDBCConnectionString>>
+      hikari:
+        maximumPoolSize: 10
+        minimumIdle: 2
+        poolName: firstdb-pool
+      username: <<DatabaseUser>>
+      password: <<DatabasePassword>>
+      schema: <<DatabaseSchema>>
+    second-db:
+      driver-class-name: org.postgresql.Driver
+      jdbc-url: <<DatabaseJDBCConnectionString>>
+      hikari:
+        maximumPoolSize: 10
+        minimumIdle: 2
+        poolName: seconddb-pool
+      username: <<DatabaseUser>>
+      password: <<DatabasePassword>>
+      schema: <<DatabaseSchema>>
